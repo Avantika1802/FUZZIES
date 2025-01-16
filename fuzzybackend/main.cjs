@@ -12,7 +12,10 @@ const port = process.env.PORT || 2323;
 const nodemailer = require('nodemailer');
 
 // Middleware
-app.use( cors());
+app.use(cors({
+  origin: ['https://your-vercel-domain.vercel.app', 'https://another-allowed-domain.com'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 app.use(bodyParser.json());
 
 // Routes
