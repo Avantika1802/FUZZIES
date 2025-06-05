@@ -37,6 +37,11 @@ app.use('/api/products',feedbackRoutes);
 app.use('/api',billingRoutes);
 app.use('/api/mail',emailRoutes);
 app.use('/api/payment',paymentRoutes);
+app.post('/ingest', (req, res) => {
+    console.log('Received payload at /ingest:', req.body);
+    res.json({ message: 'Payload received successfully', data: req.body });
+});
+
 
 // Database
 mongoose.connect(process.env.MONGODB_URI)
